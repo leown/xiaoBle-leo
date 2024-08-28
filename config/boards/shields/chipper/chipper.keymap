@@ -70,16 +70,10 @@
         bindings = <&kp RBKT>; // ]
         layers = <0 1 2 3 4>;
         };
-        combo_todo {
-        timeout-ms = <100>; // 因为同时按三个键，所以时间稍微调长一些，按照个人习惯调整。
-        key-positions = <3 4 5>; // KP: ert
-        bindings = <¯o_todo>; // - [ ] // 这个是个人习惯，当todo list 做好了就变成 - [x]
-        layers = <0 1 2 3 4>;
-        };
         combo_lpar {
         timeout-ms = <50>;
         key-positions = <16 17>; // KP: FG
-        bindings = <&mt RPAR LPAR>; // )(
+        bindings = <&mt RPAR LPAR>; // ) (
         layers = <0 1 2 3 4>;
         };
         combo_rpar {
