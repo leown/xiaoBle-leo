@@ -227,7 +227,7 @@
         combo_f_twelve {
         timeout-ms = <100>;
         key-positions = <10 11>; // KP: P BSPC
-        bindings = <&kp ENTER>; // F12  //  方便开发的时候使用
+        bindings = <&kp F12>; // F12  //  方便开发的时候使用
         layers = <0 1 2 3 4>;
         };
         combo_key_repeat {
