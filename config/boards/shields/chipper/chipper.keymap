@@ -9,7 +9,7 @@
 #define COMBO_TIMEOUT 60
 
 #define DEF 0
-#define NAV 1
+#define FEAT 1
 #define FN 2
 #define NUM 3
 #define SYS 4
@@ -23,16 +23,229 @@
                 = <&macro_tap_time 10>
 		,<&macro_tap &kp N &kp A &kp Y &kp E &kp O &kp N &kp RET>;
         };
+    // utility bindings = <¯o_todo>; // - [ ]
+    macro_todo: macro_todo {
+            label = "macro_todo";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings
+            = <&kp MINUS &kp SPACE &kp LBKT &kp SPACE &kp RBKT &kp SPACE>
+            ;
+        };
+    // programming
+    macro_js_tl: macro_js_tl {
+            label = "macro_js_tl";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings
+            = <&kp GRAVE &kp DOLLAR &kp LBRC &kp RBRC &kp GRAVE &kp LEFT &kp LEFT>
+            ;
+    };
     };
 };
 
 / {
     combos {
         compatible = "zmk,combos";
-	 combo_cw {
+	    combo_cw {
             timeout-ms = <COMBO_TIMEOUT>;
             key-positions = <6 30>;
             bindings = <&nayeon>;
+        };
+        // Symbols / Operations
+        compatible = "zmk,combos";
+        combo_lbkt {
+        timeout-ms = <50>;
+        key-positions = <4 5>; // KP: RT
+        bindings = <&mt RBKT LBKT>; // ][ // 可以用CMD+这个单手返回到代码上一个编辑的地方 或者网页返回
+        layers = <0 1 2 3 4>;
+        };
+        combo_rbkt {
+        timeout-ms = <50>;
+        key-positions = <6 7>; // KP: YU
+        bindings = <&kp RBKT>; // ]
+        layers = <0 1 2 3 4>;
+        };
+        combo_todo {
+        timeout-ms = <100>; // 因为同时按三个键，所以时间稍微调长一些，按照个人习惯调整。
+        key-positions = <3 4 5>; // KP: ert
+        bindings = <¯o_todo>; // - [ ] // 这个是个人习惯，当todo list 做好了就变成 - [x]
+        layers = <0 1 2 3 4>;
+        };
+        combo_lpar {
+        timeout-ms = <50>;
+        key-positions = <16 17>; // KP: FG
+        bindings = <&mt RPAR LPAR>; // )(
+        layers = <0 1 2 3 4>;
+        };
+        combo_rpar {
+        timeout-ms = <50>;
+        key-positions = <18 19>; // KP: HJ
+        bindings = <&kp RPAR>; // )
+        layers = <0 1 2 3 4>;
+        };
+        combo_lbrc {
+        timeout-ms = <50>;
+        key-positions = <28 29>; // KP: VB
+        bindings = <&mt RBRC LBRC>; // }{
+        layers = <0 1 2 3 4>;
+        };
+        combo_rbrc {
+        timeout-ms = <50>;
+        key-positions = <30 31>; // KP: NM
+        bindings = <&kp RBRC>; // }
+        layers = <0 1 2 3 4>;
+        }; 
+        combo_fslh {
+        timeout-ms = <50>;
+        key-positions = <19 30>; // KP: BJ
+        bindings = <&kp FSLH>; // forward slash /
+        layers = <0 1 2 3 4>;
+        };
+        combo_bslh {
+        timeout-ms = <50>;
+        key-positions = <16 29>; // KP: VF
+        bindings = <&kp BSLH>; // back slash \
+        layers = <0 1 2 3 4>;
+        }; 
+        combo_equal {
+        timeout-ms = <50>;
+        key-positions = <9 10>; // KP: op
+        bindings = <&mt GREATER_THAN EQUAL>; // > (= & +) //短击连着长按同一个键 即可输出箭头 => 
+        layers = <0 1 2 3 4>;
+        }; 
+        combo_minus2 {
+        timeout-ms = <50>;
+        key-positions = <8 9>; // KP: io
+        bindings = <&mt LESS_THAN MINUS>; // (< & -) // 结合上面=> 单杠或者双杠的双向箭头 
+        layers = <0 1 2 3 4>;
+        }; 
+        combo_excl {
+        timeout-ms = <50>;
+        key-positions = <8 21>; // KP: il
+        bindings = <&kp EXCLAMATION>; // ! // 常用符号 一般在句子结尾 放得里逗号句号近一点 IL不容易误触也符合手型
+        layers = <0 1 2 3 4>;
+        }; 
+        combo_tag {
+        timeout-ms = <50>;
+        key-positions = <3 4>; // KP: er
+        bindings = <&mt GREATER_THAN LESS_THAN>; // > < // 由于上面的[](){}都可以用左手单手输入了，所以加一个同样原理的<> 方便html写tag
+        layers = <0 1 2 3 4>;
+        }; 
+        combo_js_lt{
+        timeout-ms = <100>; // 因为同时按三个键，所以时间稍微调长一些，按照个人习惯调整。
+        key-positions = <27 28 29>; // KP: xc
+        bindings = <¯o_js_tl>; // (`${}`) // 常用符号组合，由于28 29可以输出{}，因此加一个27输出这个符号组合非常合理好记
+        layers = <0 1 2 3 4>;
+        }; 
+        combo_dollar {
+        timeout-ms = <50>;
+        key-positions = <27 28>; // KP: xc
+        bindings = <&kp DOLLAR>; // ($) // 因为上面的符号组合用到了$, 所以顺势将27 28设为输出$
+        layers = <0 1 2 3 4>;
+        }; 
+        combo_double_quote{
+        timeout-ms = <50>;
+        key-positions = <23 35>; // KP: rshft '
+        bindings = <&kp LS(SQT)>; // select string and => "string" // 右手拿着鼠标选择string，然后大拇指靠近键盘同时按右下角两个键输出double quote，这样就不需要按shift + ‘了，手都不需要离开鼠标。
+        layers = <0 1 2 3 4>;
+        }; 
+        combo_under {
+        timeout-ms = <100>; // 因为是两字手分别同时按键，所以时间稍微调长一些，按照个人习惯调整。
+        key-positions = <29 30>; // KP: BN
+        bindings = <&kp UNDER>; // (_) // 象形+位置
+        layers = <0 1 2 3 4>;
+        };
+        combo_minus {
+        timeout-ms = <100>; // 因为是两字手分别同时按键，所以时间稍微调长一些，按照个人习惯调整。
+        key-positions = <17 18>; // KP: GH 
+        bindings = <&kp MINUS>; // (-) // 象形+位置
+        layers = <0 1 2 3 4>;
+        };
+        combo_pipe_pilcrow {
+        timeout-ms = <100>; // 因为是两字手分别同时按键，所以时间稍微调长一些，按照个人习惯调整。
+        key-positions = <5 6>; // KP: TY
+        bindings = <&mt LA(N7) PIPE>; // (¶ |) ¶:start of a paragraph // 象形+位置
+        layers = <0 1 2 3 4>;
+        };
+        combo_hash {
+        timeout-ms = <50>;
+        key-positions = <3 14>; // KP: SE
+        bindings = <&kp HASH>; // (#) // 写Markdown标题和Python comment比较方便，还因为 “#” 本身就是 “shift+3”，而3的位置在普通佩列键盘的E上面
+        layers = <0 1 2 3 4>;
+        };
+
+        // arrow keys
+        combo_right {
+        timeout-ms = <50>;
+        key-positions = <15 16>; // KP: DF
+        bindings = <&kp RIGHT>; // 方便中文输入切换下一个选项，结合右手的JK enter，小键盘输入中文也毫无障碍
+        layers = <0 1 2 3 4>;
+        }; 
+        combo_left {
+        timeout-ms = <50>;
+        key-positions = <14 15>; // KP: SD
+        bindings = <&kp LEFT>; // 同上逻辑，方便中文输入。再加上强迫症，所以上下左右都放了，形成一个像游戏手柄的D-Pad
+        layers = <0 1 2 3 4>;
+        }; 
+        combo_up{
+        timeout-ms = <50>;
+        key-positions = <3 15>; // KP: ED 
+        bindings = <&kp UP>; // 上下键不怎么用，一些需要用上下左右的组合软件功能键，我都放在切层里，用上一篇中方向键的位置。如果使用的话是直接按两个键中间
+        layers = <0 1 2 3 4>;
+        }; 
+        combo_down {
+        timeout-ms = <50>;
+        key-positions = <15 27>; // KP: DX
+        bindings = <&kp DOWN>; 
+        layers = <0 1 2 3 4>;
+        }; 
+
+        // Power ESC ENTER
+        combo_k_pwr {
+        timeout-ms = <50>;
+        key-positions = <0 38>;
+        bindings = <&kp K_PWR>; // Power (Keyboard) // 熄屏
+        layers = <0 1 2 3 4>;
+        };
+        combo_esc {
+        timeout-ms = <50>;
+        key-positions = <0 1>;
+        bindings = <&kp ESC>; // ESC
+        layers = <0 1 2 3 4>;
+        };
+        combo_left_bspc {
+        timeout-ms = <50>;
+        key-positions = <12 13>; // KP: CAP A
+        bindings = <&kp BSPC>; // backspace // 方便右手鼠标，左手删除
+        layers = <0 1 2 3 4>;
+        };
+        combo_alt_bspc {
+        timeout-ms = <50>;
+        key-positions = <20 21>; // KP: KL
+        bindings = <&kp LA(BSPC)>; // Alt(backspace) // 英文输入方便快捷删除整个单词
+        layers = <0 1 2 3 4>;
+        };
+        combo_enter {
+        timeout-ms = <100>;
+        key-positions = <19 20>; // KP: JK
+        bindings = <&kp ENTER>; // enter // 个人偏好，觉得JK输入ENTER很爽。虽然上一篇中提到右手有个拇指键是Enter，但我从来都不用，拇指负责功能和切层键还有空格。
+        layers = <0 1 2 3 4>;
+        };
+        combo_lock {
+        timeout-ms = <50>;
+        key-positions = <0 5 38>; // KP: ` + T + command
+        bindings = <&tog LOC>; // to lock layer // 上一篇提到的切换到全是&的层，方便清理键盘，避免按压输入内容。
+        };
+        combo_key_repeat {
+        timeout-ms = <100>;
+        key-positions = <12 24>; // KP: Caps Shift
+        bindings = <&key_repeat>; // 重复上一个或者一组输入，详情看zmk doc 
+        layers = <0 1 2 3 4>;
         };
     };
 };
@@ -64,25 +277,25 @@
 
                 DEF_layer {
                         bindings = <
-            //╭──────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭──────╮
-&bht LS(LC(LALT)) ESC     &kp Q         &kp W         &kp E         &kp R         &kp T            &kp Y         &kp U         &kp I         &kp O         &lt FN P        &kp DEL
-            //├──────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├──────┤
-&bht LS(LC(LA(LGUI))) TAB   &bht LG(A) A     &kp S    &kp D         &bht LG(F) F  &kp G            &kp H         &kp J         &kp K         &kp L         &kp RET         &kp RSHFT
-            //├──────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├──────┤
-&bht LCTRL BSPC    &lt FN Z    &bht LG(X) X   &bht LG(C) C   &bht LG(V) V  &bht LS(LC(LA(V))) B       &kp N      &kp M        &bht SEMI COMMA &bht COLON DOT &bht EXCL QMARK  &kp RALT
-            //├──────┤ ╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┴───────────────────────────╯ ├──────┤
-                                                    &kp LSHFT   &bht LGUI LG(TAB)  &lt NAV SPC      &lt NUM SPC   &kp BSPC     &bht RS(RC(RA(RGUI))) RS(RC(RA(H)))
-             //                                     ╰────────────┼──────────────┴─────────────╯   ╰─────────────┴─────────────┼─────────────╯
+//╭──────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭──────╮
+&bht TAB GRAVE  &kp Q         &kp W         &kp E         &kp R         &kp T            &kp Y         &kp U         &kp I         &kp O         &lt FN P      &kp BSPC
+//├──────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├──────┤
+&kp TAB      &bht LG(A) A     &kp S       &kp D         &bht LG(F) F    &kp G            &kp H         &kp J         &kp K         &kp L         &kp SEMI      &kp APOS
+//├──────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├──────┤
+&kp LSHFT   &lt FEAT BSLH    &kp Z        &bht LG(X) X   &bht LG(C) C   &bht LG(V) V     &kp B         &kp N         &kp M         &kp COMMA     &kp DOT       &bht RSHFT FSLH    
+//├──────┤ ╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯ ├──────┤
+                                         &kp LCTRL   &bht LALT SPC     &kp LGUI        &lt FN RET    &kp SPC      &lt NUM LGUI
+//                                     ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┼─────────────╯
                         >;
                 };
 
-                NAV_layer {
+                FEAT_layer {
 
                         bindings = <
 //╭──────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭──────╮
-    ___      ___         &kp LS(LC(TAB)) &kp UP       &kp LC(TAB)    &kp LG(TAB)       ___           ___           &kp UP           ___            ___           ___
+    ___      ___         &kp LG(LC(W))     ___           ___            ___           ___           ___         &kp LA(LS(UP))           ___            ___           ___
 //├──────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├──────┤
-    ___      ___            &kp LEFT      &kp DOWN      &kp RIGHT      ___              ___           &kp LEFT      &kp DOWN      &kp RIGHT            ___           ___
+    ___      &kp LS(LA(A))    ___          ___         &kp LG(LS(W))     ___            ___         ___        &kp LG(LBKT)  &kp LA(LS(DOWN)) &kp LG(RBKT)  ___           ___
 //├──────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├──────┤
     ___      ___            ___           ___           ___            ___              ___           ___           ___           ___           ___            ___
 //├──────┤ ╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┴───────────────────────────╯ ├──────┤
@@ -95,12 +308,12 @@
 
                         bindings = <
 //╭──────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭──────╮
-    ___        ___         ___           ___           ___          ___              ___            &kp F7        &kp F8        &kp F9         &kp F12       ___
+    ___        ___         ___              &kp F7        &kp F8        &kp F9         &kp F12       &kp HOME     &kp PG_UP     &kp INS       &kp LG(INS)    ___
 //├──────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├──────┤
-    ___        ___         ___           ___           ___          ___              ___            &kp F4        &kp F5        &kp F6         &kp F11       ___
+    ___        ___         ___              &kp F4        &kp F5        &kp F6         &kp F11       &kp END      &kp PG_DN     &kp DEL      &kp LS(INS)     ___
 //├──────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├──────┤
-    ___        ___         ___           ___           ___          ___              ___            &kp F1        &kp F2        &kp F3         &kp F10       ___
-//├──────┤ ╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┴───────────────────────────╯ ├──────┤
+    ___        ___         ___              &kp F1        &kp F2        &kp F3         &kp F10       ___             ___           ___           ___         &kp RSHFT
+//├──────┤ ╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯ ├──────┤
                                                ___        ___           ___            ___           ___           ___                                       
 //                                           ╰──────╯╰─────────────┴─────────────╯ ╰─────────────┴─────────────╯╰──────╯                                           
                         >;
@@ -110,14 +323,14 @@
 
                         bindings = <
 //╭──────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭──────╮
-    ___     &bht DQT QMARK &kp LT        &kp EQUAL     &kp GT        &kp BSLH         &mt EXCL EQUAL  &mt PLUS N7 &mt MINUS N8   &mt UNDER N9  &kp RG(P)     ___
+   &kp TAB   &kp MINUS      &kp FSLH     &kp N7          &kp N8        &kp N9        &kp CARET        ___          &kp UP         ___            ___         ___
 //├──────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├──────┤
-    ___     &kp AT        &kp LPAR      &kp DLLR      &kp RPAR      &kp GRAVE         &mt CARET KP_DOT &mt STAR N4  &mt FSLH N5  &mt BSLH N6   ___           ___
+    ___      &kp PLUS       &kp STAR     &kp N4          &kp N5        &kp N6        &kp PRCNT      &kp LEFT       &kp DOWN     &kp RIGHT        ___         ___
 //├──────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├──────┤
-    ___     &kp LBRC      &kp LBKT      &kp HASH      &kp RBKT      &kp RBRC          &mt PRCNT N0   &mt PIPE N1   &mt AMPS N2   &kp N3        ___           ___
-//├──────┤ ╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┴───────────────────────────╯ ├──────┤
-                                         ___           ___           ___             ___           ___                                                       ___
-//                                     ╰─────────────┴─────────────┴─────────────╯ ╰─────────────┴─────────────╯                                           ╰──────╯
+    ___        ___          &kp EQUAL    &kp N1          &kp N2        &kp N3        &kp AMPS       &kp TILDE       ___           ___            ___         ___
+//├──────┤ ╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯ ├──────┤
+                                         &mt AT LCTRL  &mt LALT DOT  &mt LGUI N0        ___            ___         ___
+//                                     ╰─────────────┴─────────────┴─────────────╯ ╰─────────────┴─────────────╯ ╰──────╯
                         >;
 		};
 
