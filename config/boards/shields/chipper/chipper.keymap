@@ -130,12 +130,6 @@
         bindings = <&mt GREATER_THAN LESS_THAN>; // > < // 由于上面的[](){}都可以用左手单手输入了，所以加一个同样原理的<> 方便html写tag
         layers = <0 1 2 3 4>;
         }; 
-        combo_js_lt{
-        timeout-ms = <100>; // 因为同时按三个键，所以时间稍微调长一些，按照个人习惯调整。
-        key-positions = <27 28 29>; // KP: xc
-        bindings = <¯o_js_tl>; // (`${}`) // 常用符号组合，由于28 29可以输出{}，因此加一个27输出这个符号组合非常合理好记
-        layers = <0 1 2 3 4>;
-        }; 
         combo_dollar {
         timeout-ms = <50>;
         key-positions = <27 28>; // KP: xc
