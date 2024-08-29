@@ -271,9 +271,9 @@
 //├──────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├──────┤
 &lt NUM GRAVE &bht LG(A) A     &kp S       &kp D         &bht LG(F) F    &kp G           &kp H         &kp J         &kp K         &kp L         &kp SEMI      &kp APOS
 //├──────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├──────┤
-&kp LSHFT    &lt FEAT Z     &bht LG(X) X   &bht LG(C) C   &bht LG(V) V   &kp BSLH        &kp B        &kp N         &kp M         &kp COMMA     &kp DOT       &bht RSHFT FSLH
+&kp LSHFT    &lt FEAT Z     &bht LG(X) X   &bht LG(C) C   &bht LG(V) V   &kp B           &kp N         &kp M         &kp COMMA     &kp DOT       &kp FSLH      &bht RSHFT BSLH
 //├──────┤ ╰─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────╯ ├──────┤
-                                         &kp LCTRL      &bht LALT SPC  &kp LGUI       &lt FN RET    &kp SPC      &lt NUM RGUI
+                                         &kp LCTRL      &bht LALT SPC    &kp LGUI        &lt FN RET    &kp SPC      &lt NUM RGUI
 //                                     ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┼─────────────╯
                         >;
                 };
