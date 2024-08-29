@@ -85,13 +85,13 @@
         combo_lbrc {
         timeout-ms = <50>;
         key-positions = <28 29>; // KP: VB
-        bindings = <&kb LS(LBKT)>; // }{
+        bindings = <&kp LS(LBKT)>; // }{
         layers = <0 1 2 3 4>;
         };
         combo_rbrc {
         timeout-ms = <50>;
         key-positions = <30 31>; // KP: NM
-        bindings = <&kp RBRC>; // }
+        bindings = <&kp LS(RBKT)>; // }
         layers = <0 1 2 3 4>;
         }; 
         combo_fslh {
