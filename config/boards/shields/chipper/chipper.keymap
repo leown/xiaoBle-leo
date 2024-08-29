@@ -71,19 +71,19 @@
         layers = <0 1 2 3 4>;
         };
         combo_lpar {
-        timeout-ms = <50>;
+        timeout-ms = <80>;
         key-positions = <16 17>; // KP: FG
-        bindings = <&mt RPAR LPAR>; // ) (
+        bindings = <&mt KP_RPAR KP_LPAR>; // ) (
         layers = <0 1 2 3 4>;
         };
         combo_rpar {
         timeout-ms = <50>;
         key-positions = <18 19>; // KP: HJ
-        bindings = <&kp RPAR>; // )
+        bindings = <&kp KP_RPAR>; // )
         layers = <0 1 2 3 4>;
         };
         combo_lbrc {
-        timeout-ms = <50>;
+        timeout-ms = <80>;
         key-positions = <28 29>; // KP: VB
         bindings = <&mt RBRC LBRC>; // }{
         layers = <0 1 2 3 4>;
@@ -267,9 +267,9 @@
                 DEF_layer {
                         bindings = <
 //╭──────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭──────╮
-&bht TAB GRAVE  &kp Q         &kp W         &kp E         &kp R         &kp T            &kp Y         &kp U         &kp I         &kp O         &lt FN P      &kp BSPC
+&kp TAB   &bht LG(Q) Q         &kp W         &kp E         &kp R         &kp T            &kp Y         &kp U         &kp I         &kp O         &lt FN P      &kp BSPC
 //├──────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├──────┤
-&lt NUM TAB      &bht LG(A) A     &kp S       &kp D         &bht LG(F) F    &kp G            &kp H         &kp J         &kp K         &kp L         &kp SEMI      &kp APOS
+&lt NUM GRAVE &bht LG(A) A     &kp S       &kp D         &bht LG(F) F    &kp G            &kp H         &kp J         &kp K         &kp L         &kp SEMI      &kp APOS
 //├──────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├──────┤
 &kp LSHFT    &lt FEAT Z        &bht LG(X) X   &bht LG(C) C   &bht LG(V) V     &kp B         &kp N         &kp M         &kp COMMA     &kp DOT       &kp FSLH   &bht RSHFT BSLH 
 //├──────┤ ╰─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────╯ ├──────┤
