@@ -49,6 +49,7 @@
             label = "macro_zxc";
             compatible = "zmk,behavior-macro"; 
             bindings = <&kp Z &kp X &kp C &kp Z &kp X &kp C>
+            ;
         };
     };
 };
