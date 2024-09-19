@@ -46,10 +46,14 @@
                 ;
         };
         macro_zxc: macro_zxc {
-            label = "macro_zxc";
-            compatible = "zmk,behavior-macro"; 
-            bindings = <&kp Z &kp X &kp C &kp Z &kp X &kp C>
-            ;
+                label = "macro_zxc";
+                compatible = "zmk,behavior-macro";
+                #binding-cells = <0>;
+                wait-ms = <10>;
+                tap-ms = <10>;
+                bindings 
+                = <&kp Z &kp X &kp C &kp Z &kp X &kp C>
+                ;
         };
     };
 };
