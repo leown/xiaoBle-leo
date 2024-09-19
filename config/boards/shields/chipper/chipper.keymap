@@ -16,35 +16,40 @@
 
 / {
     macros {
-	nayeon: nayeon {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings
-                = <&macro_tap_time 10>
-		,<&macro_tap &kp N &kp A &kp Y &kp E &kp O &kp N &kp RET>;
+        nayeon: nayeon {
+                compatible = "zmk,behavior-macro";
+                #binding-cells = <0>;
+                bindings
+                    = <&macro_tap_time 10>
+            ,<&macro_tap &kp N &kp A &kp Y &kp E &kp O &kp N &kp RET>;
+            };
+        // utility bindings = <¯o_todo>; // - [ ]
+        macro_todo: macro_todo {
+                label = "macro_todo";
+                compatible = "zmk,behavior-macro";
+                #binding-cells = <0>;
+                wait-ms = <10>;
+                tap-ms = <10>;
+                bindings
+                = <&kp MINUS &kp SPACE &kp LBKT &kp SPACE &kp RBKT &kp SPACE>
+                ;
+            };
+        // programming
+        macro_js_tl: macro_js_tl {
+                label = "macro_js_tl";
+                compatible = "zmk,behavior-macro";
+                #binding-cells = <0>;
+                wait-ms = <10>;
+                tap-ms = <10>;
+                bindings
+                = <&kp GRAVE &kp DOLLAR &kp LBRC &kp RBRC &kp GRAVE &kp LEFT &kp LEFT>
+                ;
         };
-    // utility bindings = <¯o_todo>; // - [ ]
-    macro_todo: macro_todo {
-            label = "macro_todo";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <10>;
-            tap-ms = <10>;
-            bindings
-            = <&kp MINUS &kp SPACE &kp LBKT &kp SPACE &kp RBKT &kp SPACE>
-            ;
-        };
-    // programming
-    macro_js_tl: macro_js_tl {
-            label = "macro_js_tl";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <10>;
-            tap-ms = <10>;
-            bindings
-            = <&kp GRAVE &kp DOLLAR &kp LBRC &kp RBRC &kp GRAVE &kp LEFT &kp LEFT>
-            ;
-    };
+        macro_zxc: macro_zxc {
+            label = "macro_zxc";
+            compatible = "zmk,behavior-macro"; 
+            bindings = <&kp Z &kp X &kp C &kp Z &kp X &kp C>
+        }
     };
 };
 
@@ -282,7 +287,7 @@
 
                         bindings = <
 //╭──────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭──────╮
-    ___      ___           &kp LG(LC(W))     ___       &kp Z(X(C))  &bht RBKT LBKT   &kp RBKT       ___         &kp LA(LS(UP))      ___            ___    &kp LG(F12)
+    ___      ___           &kp LG(LC(W))     ___       &macro_zxc   &bht RBKT LBKT   &kp RBKT       ___         &kp LA(LS(UP))      ___            ___    &kp LG(F12)
 //├──────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├──────┤
     ___      &kp LS(LG(A))    ___          ___         &kp LG(LS(W))  &kp LS(N9)       &kp LS(0)   &kp LG(LBKT)  &kp LA(LS(DOWN)) &kp LG(RBKT)    ___        ___ 
 //├──────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├──────┤
@@ -290,7 +295,7 @@
 //├──────┤ ╰─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────╯ ├──────┤
                                           ___           ___            ___              ___           ___          ___
 //                                     ╰────────────╰─────────────┴──────────────╯ ╰─────────────┴─────────────╯─────────────╯                                           
-                        >;      
+                        >;
                 };
 
                 FN_layer {
